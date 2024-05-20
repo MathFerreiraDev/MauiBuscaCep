@@ -80,28 +80,51 @@ namespace MauiBuscaCep.Services
             return arr_cidades;
         }
 
-        //PROXIMO
-       /* public static async Task<List<Cidade>> GetCidadesByEstado(string uf)
+        // Lista de logradouros de um bairro
+        public static async Task<List<Logradouro>> GetLougradourosByBairroAndIdCidade(string bairro, int id_cidade)
         {
-            List<Cidade> arr_cidades = new List<Cidade>();
+            List<Logradouro> arr_logradouros = new List<Logradouro>();
 
             using (HttpClient cli = new HttpClient())
             {
-                string url = "http://cep.metoda.com.br/cidade/by-uf?uf=" + uf;
+                string url = "http://cep.metoda.com.br/logradouro/by-bairro?id_cidade=" + id_cidade + "&bairro=" + bairro;
                 HttpResponseMessage res = await cli.GetAsync(url);
 
                 if (res.IsSuccessStatusCode)
                 {
                     string json = res.Content.ReadAsStringAsync().Result;
 
-                    arr_cidades = JsonConvert.DeserializeObject<List<Cidade>>(json);
+                    arr_logradouros = JsonConvert.DeserializeObject<List<Logradouro>>(json);
                 }
                 else
                 {
                     throw new Exception(res.RequestMessage.Content.ToString());
                 }
             }
-            return arr_cidades;
-        }*/
+            return arr_logradouros;
+        }
+
+        public static async Task<List<Cep>> GetCepsByLogradouro(string logradouro)
+        {
+            List<Cep> arr_ceps = new List<Cep>();
+
+            using (HttpClient cli = new HttpClient())
+            {
+                string url = "http://cep.metoda.com.br/cep/by-logradouro?logradouro=" + logradouro;
+                HttpResponseMessage res = await cli.GetAsync(url);
+
+                if (res.IsSuccessStatusCode)
+                {
+                    string json = res.Content.ReadAsStringAsync().Result;
+
+                    arr_ceps = JsonConvert.DeserializeObject<List<Cep>>(json);
+                }
+                else
+                {
+                    throw new Exception(res.RequestMessage.Content.ToString());
+                }
+            }
+            return arr_ceps;
+        }
     }
 }
