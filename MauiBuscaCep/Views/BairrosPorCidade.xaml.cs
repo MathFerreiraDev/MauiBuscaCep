@@ -50,11 +50,11 @@ public partial class BairrosPorCidade : ContentPage
 
             list_bairros.Clear();
 
-            arr_bairros.ForEach(j => list_cidades.Add(j));
+            arr_bairros.ForEach(i => list_bairros.Add(i));
         }
         catch (Exception ex)
         {
-
+            await DisplayAlert("Eita!", ex.Message, "OK");
         }
     }
 }

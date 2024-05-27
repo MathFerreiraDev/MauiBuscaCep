@@ -4,9 +4,21 @@
              x:Class="MauiBuscaCep.Views.Menu"
              Title="Menu">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Grid ColumnDefinitions="*, *" RowDefinitions="*, *, *, *">
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                   Text="API Busca de CEP"/>
+
+            <Button Grid.Row="1" Grid.Column="0" x:Name="btn_buscacep" 
+                    Text="Buscar por CEP" Clicked="btn_buscacep_Clicked"/>
+
+            <Button Grid.Row="1" Grid.Column="1" x:Name="btn_buscacidades" 
+                    Text="Bucar Cidades" Clicked="btn_buscacidades_Clicked"/>
+
+            <Button Grid.Row="2" Grid.Column="0" x:Name="btn_buscaruas" 
+                    Text="Bucar Ruas por Bairro" Clicked="btn_buscaruas_Clicked"/>
+
+            <Button Grid.Row="2" Grid.Column="1" x:Name="btn_buscaendereco" 
+                    Text="Bucar Endereço por CEP" Clicked="btn_buscaendereco_Clicked"/>
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>
