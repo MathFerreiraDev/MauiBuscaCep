@@ -1,31 +1,71 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiBuscaCep.Views.Menu">
-    <VerticalStackLayout Padding="25, 5">
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
-        Text="API Busca de CEP" Style="{StaticResource lbl_titulo}"/>
-        <Grid ColumnDefinitions="*, *" RowDefinitions="*, *" ColumnSpacing="15" RowSpacing="15">
+             x:Class="MauiBuscaCep.Views.Menu"
+             Title="API Busca de CEP" BackgroundColor="Black">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#1bccc3" Offset="0.1" />
+            <GradientStop Color="#1356ad" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid RowDefinitions="*, 3*, 1" RowSpacing="0">
+        <Label Grid.Row="0" Text="✉ MENU PRINCIPAL" Style="{StaticResource lbl_titulo}"/>
+        <Frame CornerRadius="20" Grid.Row="1">
+            <ScrollView  >
+                <VerticalStackLayout Padding="25, 5, 25, 40" BackgroundColor="White">
+                    
+                    <Grid ColumnDefinitions="*, *" RowDefinitions="*, *" ColumnSpacing="15" RowSpacing="15">
 
 
-            <Frame Grid.Row="0" Grid.Column="0" BorderColor="#4d6e87">
-                <VerticalStackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
-                    <Image Source="https://cdn-icons-png.flaticon.com/512/1458/1458527.png" WidthRequest="110" HorizontalOptions="Center" VerticalOptions="Center" />
-                    <Label Text="Buscar por CEP" Style="{StaticResource lbl_btntitle}"/>
+                        <Frame Grid.Row="0" Grid.Column="0" BorderColor="#4d6e87">
+                            <VerticalStackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                                <Image Source="cep.png" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Text="Buscar por CEP" Style="{StaticResource lbl_btntitle}"/>
+                            </VerticalStackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="btn_buscacep_Clicked"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame Grid.Row="0" Grid.Column="1" BorderColor="#4d6e87">
+                            <VerticalStackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                                <Image Source="cidade.png" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Text="Buscar por Cidades" Style="{StaticResource lbl_btntitle}"/>
+                            </VerticalStackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="btn_buscacidades_Clicked"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame Grid.Row="1" Grid.Column="0" BorderColor="#4d6e87">
+                            <VerticalStackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                                <Image Source="casa.png" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Text="Buscar Ruas por Bairro" Style="{StaticResource lbl_btntitle}"/>
+                            </VerticalStackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="btn_buscaruas_Clicked"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame Grid.Row="1" Grid.Column="1" BorderColor="#4d6e87">
+                            <VerticalStackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                                <Image Source="endereco.png" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Text="Buscar Endereço por CEP" Style="{StaticResource lbl_btntitle}"/>
+                            </VerticalStackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="btn_buscaendereco_Clicked"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </Grid>
+                    
                 </VerticalStackLayout>
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="btn_buscacep_Clicked"/>
-                </Frame.GestureRecognizers>
-            </Frame>
-
-            <Button Grid.Row="0" Grid.Column="1" x:Name="btn_buscacidades" 
-                    Text="Bucar Cidades" Clicked="btn_buscacidades_Clicked"/>
-
-            <Button Grid.Row="1" Grid.Column="0" x:Name="btn_buscaruas" 
-                    Text="Bucar Ruas por Bairro" Clicked="btn_buscaruas_Clicked"/>
-
-            <Button Grid.Row="1" Grid.Column="1" x:Name="btn_buscaendereco" 
-                    Text="Bucar Endereço por CEP" Clicked="btn_buscaendereco_Clicked"/>
-        </Grid>
-    </VerticalStackLayout>
+                
+            </ScrollView>
+            
+        </Frame>
+        <StackLayout Grid.Row="2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="0, -20, 0,0"/>
+    </Grid>
 </ContentPage>
