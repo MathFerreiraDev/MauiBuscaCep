@@ -9,6 +9,27 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="Label" x:Key="lbl_titulo">
+                <Setter Property="FontSize" Value="27"/>
+                <Setter Property="TextColor" Value="#0b4a7a"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Padding" Value="10, 20"/>
+                <Setter Property="TextTransform" Value="Uppercase"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="lbl_btntitle">
+                <Setter Property="Padding" Value="0, 30"/>
+                <Setter Property="TextColor" Value="#2c91de"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="TextTransform" Value="Uppercase"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+
         </ResourceDictionary>
+        
+        
     </Application.Resources>
 </Application>

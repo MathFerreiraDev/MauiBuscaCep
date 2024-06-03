@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiBuscaCep.Views.Menu"
-             Title="Menu">
-    <VerticalStackLayout>
-        <Grid ColumnDefinitions="*, *" RowDefinitions="*, *, *, *">
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
-                   Text="API Busca de CEP"/>
+             x:Class="MauiBuscaCep.Views.Menu">
+    <VerticalStackLayout Padding="25, 5">
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+        Text="API Busca de CEP" Style="{StaticResource lbl_titulo}"/>
+        <Grid ColumnDefinitions="*, *" RowDefinitions="*, *" ColumnSpacing="15" RowSpacing="15">
 
-            <Button Grid.Row="1" Grid.Column="0" x:Name="btn_buscacep" 
-                    Text="Buscar por CEP" Clicked="btn_buscacep_Clicked"/>
 
-            <Button Grid.Row="1" Grid.Column="1" x:Name="btn_buscacidades" 
+            <Frame Grid.Row="0" Grid.Column="0" BorderColor="#4d6e87">
+                <VerticalStackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                    <Image Source="https://cdn-icons-png.flaticon.com/512/1458/1458527.png" WidthRequest="110" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Text="Buscar por CEP" Style="{StaticResource lbl_btntitle}"/>
+                </VerticalStackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="btn_buscacep_Clicked"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Button Grid.Row="0" Grid.Column="1" x:Name="btn_buscacidades" 
                     Text="Bucar Cidades" Clicked="btn_buscacidades_Clicked"/>
 
-            <Button Grid.Row="2" Grid.Column="0" x:Name="btn_buscaruas" 
+            <Button Grid.Row="1" Grid.Column="0" x:Name="btn_buscaruas" 
                     Text="Bucar Ruas por Bairro" Clicked="btn_buscaruas_Clicked"/>
 
-            <Button Grid.Row="2" Grid.Column="1" x:Name="btn_buscaendereco" 
+            <Button Grid.Row="1" Grid.Column="1" x:Name="btn_buscaendereco" 
                     Text="Bucar Endereço por CEP" Clicked="btn_buscaendereco_Clicked"/>
         </Grid>
     </VerticalStackLayout>
