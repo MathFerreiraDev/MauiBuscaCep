@@ -13,7 +13,7 @@
 
     <Grid RowDefinitions="*, 3*, 1" RowSpacing="0">
         <Label Grid.Row="0" Text="✉ MENU PRINCIPAL" Style="{StaticResource lbl_titulo}"/>
-        <Frame CornerRadius="20" Grid.Row="1">
+        <Frame CornerRadius="20" Grid.Row="1" BorderColor="White">
             <ScrollView  >
                 <VerticalStackLayout Padding="25, 5, 25, 40" BackgroundColor="White">
                     
@@ -66,6 +66,6 @@
             </ScrollView>
             
         </Frame>
-        <StackLayout Grid.Row="2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="0, -20, 0,0"/>
+        <StackLayout Grid.Row="2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="0, -22, 0,0"/>
     </Grid>
 </ContentPage>
