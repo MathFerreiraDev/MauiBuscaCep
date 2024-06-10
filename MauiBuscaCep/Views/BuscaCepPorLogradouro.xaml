@@ -2,37 +2,53 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBuscaCep.Views.BuscaCepPorLogradouro"
-             Title="BuscaCepPorLogradouro">
-    <VerticalStackLayout>
-        <HorizontalStackLayout>
-            <SearchBar x:Name="txt_logradouro" Placeholder="Digite o nome de sua rua"/>
-            <Button x:Name="btn_search" Text="Buscar" Clicked="btn_search_Clicked"/>
-        </HorizontalStackLayout>
+             Title="Consulta de CEP existente">
 
-        <ActivityIndicator x:Name="ldr_carregando" IsRunning="False"/>
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#1bccc3" Offset="0.1" />
+            <GradientStop Color="#1356ad" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    
+    
+    <StackLayout Spacing="0">
+        <StackLayout HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="10">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="5" HeightRequest="60" VerticalOptions="EndAndExpand">
+                <Entry x:Name="txt_cep" Placeholder="Digite seu CEP" Style="{StaticResource srcb_default}" Keyboard="Numeric"/>
+                <Button x:Name="btn_search" Text="Buscar" Clicked="btn_search_Clicked" Style="{StaticResource btn_default}"/>
+            </StackLayout>
+        </StackLayout>
 
-        <ListView x:Name="lst_ceps">
-            <ListView.Header>
-                <Grid ColumnDefinitions="Auto, *, *, Auto" RowDefinitions="Auto">
-                    <Label Grid.Row="0" Grid.Column="0" Text="CEP"/>
-                    <Label Grid.Row="0" Grid.Column="1" Text="LOGRADOURO"/>
-                    <Label Grid.Row="0" Grid.Column="2" Text="CIDADE"/>
-                    <Label Grid.Row="0" Grid.Column="3" Text="UF"/>
-                </Grid>
-            </ListView.Header>
+        <Frame CornerRadius="20" Padding="10" BorderColor="White" BackgroundColor="White" VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <ActivityIndicator x:Name="ldr_carregando" IsRunning="False"/>
 
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
+                <ListView x:Name="lst_ceps">
+                    <ListView.Header>
                         <Grid ColumnDefinitions="Auto, *, *, Auto" RowDefinitions="Auto">
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding CEP}"/>
-                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding desc}"/>
-                            <Label Grid.Row="0" Grid.Column="2" Text="{Binding desc_cidade}"/>
-                            <Label Grid.Row="0" Grid.Column="3" Text="{Binding UF}"/>
+                            <Label Grid.Row="0" Grid.Column="0" Text="CEP"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text="LOGRADOURO"/>
+                            <Label Grid.Row="0" Grid.Column="2" Text="CIDADE"/>
+                            <Label Grid.Row="0" Grid.Column="3" Text="UF"/>
                         </Grid>
-                    </ViewCell>
-                </DataTemplate>            
-            </ListView.ItemTemplate>
-        </ListView>
-    </VerticalStackLayout>
+                    </ListView.Header>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="Auto, *, *, Auto" RowDefinitions="Auto">
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding CEP}"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding desc}"/>
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding desc_cidade}"/>
+                                    <Label Grid.Row="0" Grid.Column="3" Text="{Binding UF}"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Frame>
+        <StackLayout Grid.Row="2" HeightRequest="150" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="0, -22, 0,0"/>
+    </StackLayout>
 </ContentPage>

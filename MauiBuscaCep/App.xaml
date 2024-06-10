@@ -29,6 +29,23 @@
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
             </Style>
 
+            <Style TargetType="Entry" x:Key="srcb_default">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="21"/>
+                <Setter Property="TextTransform" Value="Uppercase"/>
+                <Setter Property="TextColor" Value="#1684c4"/>
+            </Style>
+
+            <Style TargetType="Entry" x:Key="btn_default">
+                <Setter Property="WidthRequest" Value="150"/>
+                <Setter Property="BackgroundColor" Value="#f7c10c"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="21"/>
+                <Setter Property="TextTransform" Value="Uppercase"/>
+               
+            </Style>
+
         </ResourceDictionary>
         
         

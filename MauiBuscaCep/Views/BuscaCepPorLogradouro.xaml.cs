@@ -16,7 +16,7 @@ public partial class BuscaCepPorLogradouro : ContentPage
 		{
 			ldr_carregando.IsRunning = true;
 
-			List<Cep> arr_ceps = await DataService.GetCepsByLogradouro(txt_logradouro.Text);
+			List<Cep> arr_ceps = await DataService.GetCepsByLogradouro(txt_cep.Text);
 
 			lst_ceps.ItemsSource = arr_ceps;
 		} catch (Exception ex)
