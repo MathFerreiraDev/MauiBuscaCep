@@ -108,22 +108,21 @@ namespace MauiBuscaCep.Services
         {
             List<Cep> arr_ceps = new List<Cep>();
 
-            using (HttpClient cli = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
-                string url = "http://cep.metoda.com.br/cep/by-logradouro?logradouro=" + logradouro;
-                HttpResponseMessage res = await cli.GetAsync(url);
+                HttpResponseMessage response = await client.GetAsync("https://cep.metoda.com.br/cep/by-logradouro?logradouro=" + logradouro);
 
-                if (res.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode)
                 {
-                    string json = res.Content.ReadAsStringAsync().Result;
+                    string json = response.
+                        Content.ReadAsStringAsync().Result;
 
                     arr_ceps = JsonConvert.DeserializeObject<List<Cep>>(json);
                 }
                 else
-                {
-                    throw new Exception(res.RequestMessage.Content.ToString());
-                }
+                    throw new Exception(response.RequestMessage.Content.ToString());
             }
+
             return arr_ceps;
         }
     }

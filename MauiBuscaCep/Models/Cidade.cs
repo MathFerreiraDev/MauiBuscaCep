@@ -11,7 +11,7 @@ namespace MauiBuscaCep.Models
         public int id_cidade { get; set; }
         public string descricao { get; set; }
         public string UF { get; set; }
-        public int code_ibge { get; set; }
+        public int codigo_ibge { get; set; }
         public int ddd { get; set; }
     }
 }

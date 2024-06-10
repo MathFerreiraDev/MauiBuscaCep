@@ -3,10 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBuscaCep.Views.BairrosPorCidade"
              Title="BairrosPorCidade">
-    
-    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <StackLayout>
-            <HorizontalStackLayout>
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#1bccc3" Offset="0.1" />
+            <GradientStop Color="#1356ad" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <StackLayout Spacing="0" >
+
+        <StackLayout HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="10" >
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
                 <Picker x:Name="pck_estado" SelectedIndexChanged="pck_estado_SelectedIndexChanged" Title="Selecione o Estado">
                     <Picker.Items>
 
@@ -42,32 +50,52 @@
 
                 <Picker x:Name="pck_cidade" SelectedIndexChanged="pck_cidade_SelectedIndexChanged" 
                         ItemDisplayBinding="{Binding descricao}" Title="Selecione a cidade" />
-            </HorizontalStackLayout>
-
-            <ListView x:Name="lst_bairros">
-                <ListView.Header>
-                    <Label Text="Nome do Bairro: "/>
-                </ListView.Header>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding descricao_bairro}" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-            <StackLayout x:Name="ldr_loader" IsVisible="False" AbsoluteLayout.LayoutFlags="PositionProportional" 
-                         AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1">
-                <Frame Opacity="0.9" BackgroundColor="#333" CornerRadius="15" BorderColor="#fcba03" Padding="50">
-                    <StackLayout>
-                        <ActivityIndicator IsRunning="True" Color="#fcba03"/>
-                        <Label Text="CARREGANDO..." HorizontalOptions="Center" TextColor="#fcba03" FontAttributes="Bold"/>
-                    </StackLayout>
-                </Frame>
             </StackLayout>
         </StackLayout>
-    </AbsoluteLayout>
+
+
+
+        <Frame CornerRadius="20"  BorderColor="White" BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <ScrollView VerticalScrollBarVisibility="Never">
+                <StackLayout Padding="10, 10, 10, 10">
+
+                    <ListView x:Name="lst_bairros">
+                        <ListView.Header>
+                            <StackLayout>
+                                <Label Text="Nome do Bairro: "/>
+
+                                <!-- LOADER-->
+                                <StackLayout x:Name="ldr_loader" IsVisible="False" AbsoluteLayout.LayoutFlags="PositionProportional" 
+                                    AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1">
+                                    <Frame Opacity="0.9" BackgroundColor="#f7f7f7" CornerRadius="15" BorderColor="#fcba03" Padding="50" Margin="20">
+                                        <StackLayout>
+                                            <ActivityIndicator IsRunning="True" Color="#fcba03"/>
+                                            <Label Text="CARREGANDO..." HorizontalOptions="Center" TextColor="#fcba03" FontAttributes="Bold"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+
+                                    <StackLayout>
+
+
+                                        <Label Text="{Binding descricao_bairro}" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+        <StackLayout Grid.Row="2" HeightRequest="50" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="0, -18, 0,0"/>
+    </StackLayout>
 </ContentPage>

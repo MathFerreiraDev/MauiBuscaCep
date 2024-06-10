@@ -46,6 +46,18 @@
                
             </Style>
 
+            <Style TargetType="Label" x:Key="lbl_grid_header">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="TextColor" Value="#20916c"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="lbl_grid_body">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#12406b"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
         </ResourceDictionary>
         
         

@@ -1,10 +1,13 @@
 using MauiBuscaCep.Models;
 using MauiBuscaCep.Services;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace MauiBuscaCep.Views;
 
 public partial class BuscaCepPorLogradouro : ContentPage
 {
+
 	public BuscaCepPorLogradouro()
 	{
 		InitializeComponent();
@@ -12,13 +15,14 @@ public partial class BuscaCepPorLogradouro : ContentPage
 
     private async void btn_search_Clicked(object sender, EventArgs e)
     {
-		try
+        ldr_carregando.IsRunning = true;
+        try
 		{
-			ldr_carregando.IsRunning = true;
+			
 
-			List<Cep> arr_ceps = await DataService.GetCepsByLogradouro(txt_cep.Text);
-
+			List<Cep> arr_ceps = await DataService.GetCepsByLogradouro(txt_cep.Text.ToLower());
 			lst_ceps.ItemsSource = arr_ceps;
+
 		} catch (Exception ex)
 		{
             await DisplayAlert("Eita!", ex.Message, "OK");

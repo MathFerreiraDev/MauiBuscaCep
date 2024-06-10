@@ -2,6 +2,6 @@
 {
     public class Bairro
     {
-        public string desc_bairro {  get; set; }
+        public string descricao_bairro {  get; set; }
     }
 }

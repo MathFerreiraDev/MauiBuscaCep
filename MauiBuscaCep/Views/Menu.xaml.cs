@@ -14,7 +14,7 @@ public partial class Menu : ContentPage
 
     private void btn_buscacidades_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MainPage());
+        Navigation.PushAsync(new BairrosPorCidade());
     }
 
     private void btn_buscaruas_Clicked(object sender, EventArgs e)

@@ -20,35 +20,37 @@
             </StackLayout>
         </StackLayout>
 
-        <Frame CornerRadius="20" Padding="10" BorderColor="White" BackgroundColor="White" VerticalOptions="FillAndExpand">
-            <StackLayout>
-                <ActivityIndicator x:Name="ldr_carregando" IsRunning="False"/>
+        <Frame CornerRadius="20"  BorderColor="White" BackgroundColor="White" VerticalOptions="FillAndExpand">
+            <ScrollView VerticalScrollBarVisibility="Never">
+                <StackLayout Padding="10, 10, 10, 10">
+                    <ActivityIndicator x:Name="ldr_carregando" IsRunning="False" Margin="5" Color="#ebb134" />
 
                 <ListView x:Name="lst_ceps">
                     <ListView.Header>
-                        <Grid ColumnDefinitions="Auto, *, *, Auto" RowDefinitions="Auto">
-                            <Label Grid.Row="0" Grid.Column="0" Text="CEP"/>
-                            <Label Grid.Row="0" Grid.Column="1" Text="LOGRADOURO"/>
-                            <Label Grid.Row="0" Grid.Column="2" Text="CIDADE"/>
-                            <Label Grid.Row="0" Grid.Column="3" Text="UF"/>
+                        <Grid ColumnDefinitions="*, 2*, *, *" RowDefinitions="Auto" Padding="0, 0, 0, 23" ColumnSpacing="5">
+                                <Label Grid.Row="0" Grid.Column="0" Text="CEP" Style="{StaticResource lbl_grid_header}"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="LOGRADOURO" Style="{StaticResource lbl_grid_header}"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="CIDADE" Style="{StaticResource lbl_grid_header}"/>
+                                <Label Grid.Row="0" Grid.Column="3" Text="UF" Style="{StaticResource lbl_grid_header}"/>
                         </Grid>
                     </ListView.Header>
 
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid ColumnDefinitions="Auto, *, *, Auto" RowDefinitions="Auto">
-                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding CEP}"/>
-                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding desc}"/>
-                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding desc_cidade}"/>
-                                    <Label Grid.Row="0" Grid.Column="3" Text="{Binding UF}"/>
+                                <Grid ColumnDefinitions="*, 2*, *, *" RowDefinitions="Auto" RowSpacing="15" ColumnSpacing="15">
+                                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding CEP}" Style="{StaticResource lbl_grid_body}"/>
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding descricao}" Style="{StaticResource lbl_grid_body}"/>
+                                        <Label Grid.Row="0" Grid.Column="2" Text="{Binding descricao_cidade}" Style="{StaticResource lbl_grid_body}"/>
+                                        <Label Grid.Row="0" Grid.Column="3" Text="{Binding UF}" Style="{StaticResource lbl_grid_body}"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
+            </ScrollView>
         </Frame>
-        <StackLayout Grid.Row="2" HeightRequest="150" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="0, -22, 0,0"/>
+        <StackLayout Grid.Row="2" HeightRequest="50" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="0, -18, 0,0"/>
     </StackLayout>
 </ContentPage>
