@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiBuscaCep.Views.BairrosPorCidade"
-             Title="BairrosPorCidade">
+             Title="Bairros por Cidade">
 
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -13,9 +13,9 @@
 
     <StackLayout Spacing="0" >
 
-        <StackLayout HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="10" >
-            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
-                <Picker x:Name="pck_estado" SelectedIndexChanged="pck_estado_SelectedIndexChanged" Title="Selecione o Estado">
+        <StackLayout HeightRequest="250" HorizontalOptions="FillAndExpand" Padding="20" >
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Spacing="30">
+                <Picker x:Name="pck_estado" SelectedIndexChanged="pck_estado_SelectedIndexChanged" Title="Selecione o Estado" Style="{StaticResource pck_default}">
                     <Picker.Items>
 
                         <x:String>AC</x:String>
@@ -49,7 +49,7 @@
                 </Picker>
 
                 <Picker x:Name="pck_cidade" SelectedIndexChanged="pck_cidade_SelectedIndexChanged" 
-                        ItemDisplayBinding="{Binding descricao}" Title="Selecione a cidade" />
+                        ItemDisplayBinding="{Binding descricao}" Title="Selecione a cidade" Style="{StaticResource pck_default}" />
             </StackLayout>
         </StackLayout>
 
@@ -62,7 +62,7 @@
                     <ListView x:Name="lst_bairros">
                         <ListView.Header>
                             <StackLayout>
-                                <Label Text="Nome do Bairro: "/>
+                                <Label Text="Nome do Bairro: " Style="{StaticResource lbl_header}"/>
 
                                 <!-- LOADER-->
                                 <StackLayout x:Name="ldr_loader" IsVisible="False" AbsoluteLayout.LayoutFlags="PositionProportional" 
@@ -85,7 +85,7 @@
                                     <StackLayout>
 
 
-                                        <Label Text="{Binding descricao_bairro}" />
+                                        <Label Text="{Binding descricao_bairro}" Style="{StaticResource lbl_list_item}" />
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>

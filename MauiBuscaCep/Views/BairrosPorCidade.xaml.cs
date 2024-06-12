@@ -20,7 +20,9 @@ public partial class BairrosPorCidade : ContentPage
 
     private async void pck_estado_SelectedIndexChanged(object sender, EventArgs e)
     {
+        pck_cidade.Opacity = 0.3;
         pck_cidade.IsEnabled = false;
+        
         try
         {
             Picker disp = sender as Picker;
@@ -43,7 +45,9 @@ public partial class BairrosPorCidade : ContentPage
         }
         finally
         {
+            pck_cidade.Opacity = 1;
             pck_cidade.IsEnabled = true;
+            
         }
     }
 

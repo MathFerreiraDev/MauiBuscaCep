@@ -52,10 +52,30 @@
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
 
+            <Style TargetType="Label" x:Key="lbl_header">
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="TextColor" Value="#f7c10c"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="lbl_list_item">
+                <Setter Property="FontSize" Value="26"/>
+                <Setter Property="TextColor" Value="#12668c"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
             <Style TargetType="Label" x:Key="lbl_grid_body">
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="TextColor" Value="#12406b"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style TargetType="Picker" x:Key="pck_default">
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="TextColor" Value="#03adfc"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             </Style>
 
         </ResourceDictionary>

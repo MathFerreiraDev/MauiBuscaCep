@@ -15,7 +15,7 @@
     <StackLayout Spacing="0">
         <StackLayout HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="10">
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="5" HeightRequest="60" VerticalOptions="EndAndExpand">
-                <Entry x:Name="txt_cep" Placeholder="Digite seu CEP" Style="{StaticResource srcb_default}" Keyboard="Numeric"/>
+                <Entry x:Name="txt_cep" Placeholder="Digite seu logradouro" Style="{StaticResource srcb_default}" Keyboard="Numeric"/>
                 <Button x:Name="btn_search" Text="Buscar" Clicked="btn_search_Clicked" Style="{StaticResource btn_default}"/>
             </StackLayout>
         </StackLayout>
