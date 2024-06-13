@@ -48,7 +48,7 @@
                     </Picker.Items>
                 </Picker>
 
-                <Picker x:Name="pck_cidade" SelectedIndexChanged="pck_cidade_SelectedIndexChanged" 
+                <Picker x:Name="pck_cidade" SelectedIndexChanged="pck_cidade_SelectedIndexChanged" IsEnabled="False" Opacity="0.3"
                         ItemDisplayBinding="{Binding descricao}" Title="Selecione a cidade" Style="{StaticResource pck_default}" />
             </StackLayout>
         </StackLayout>
